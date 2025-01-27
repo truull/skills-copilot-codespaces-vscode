@@ -1,0 +1,21 @@
+from pynput.mouse import Controller, Button
+import time
+import random
+
+mouse = Controller()
+
+def human_like_click(x, y):
+    # Плавное перемещение
+    mouse.position = (x, y)
+    time.sleep(random.uniform(0.1, 0.3))
+    
+    # Клик
+    mouse.click(Button.left)
+    time.sleep(random.uniform(0.1, 0.3))
+
+# Пример использования
+for _ in range(10):
+    x = random.randint(100, 800)
+    y = random.randint(100, 600)
+    human_like_click(x, y)
+    time.sleep(1)
